@@ -10,7 +10,7 @@ export class WelcomeService {
 
   constructor(private auth: AuthenticationService, private http: HttpClient) { }
   jwt : any;
-  endPoint: string="http://localhost:8080"
+  endPoint: string="http://localhost:8081"
   getWelcomePage(){
     console.log("in getWelcomePage");
     

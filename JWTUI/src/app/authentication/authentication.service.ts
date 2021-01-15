@@ -13,7 +13,9 @@ export const TOKEN_NAME:string = "jwt_token";
 })
 export class AuthenticationService {
 
-  authServiceEndpoint:string = "http://localhost:8080/authenticate";
+  
+
+  authServiceEndpoint:string = "http://localhost:8081/authenticate";
   token:any;
 
   constructor(private http: HttpClient) { }

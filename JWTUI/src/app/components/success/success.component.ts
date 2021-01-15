@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WelcomeService } from '../welcome.service';
 
 @Component({
   selector: 'app-success',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SuccessComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private service : WelcomeService) { }
+  message : any;
   ngOnInit(): void {
+    this.service.getWelcomePage().subscribe((item)=>{
+      console.log("Here we have got from"+item);
+        this.message=item.valueOf();
+    }
+
+    )
   }
 
 }

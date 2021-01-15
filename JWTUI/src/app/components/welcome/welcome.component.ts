@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private service : WelcomeService ,private route : Router) { }
+  constructor(private route : Router) { }
   response: any;
   ngOnInit(): void {
     
   }
   onClick(){
-    this.response=this.service.getWelcomePage();
+    
 
    // console.log("Respones  "+JSON.parse(this.response));
    this.route.navigate(['/success']);

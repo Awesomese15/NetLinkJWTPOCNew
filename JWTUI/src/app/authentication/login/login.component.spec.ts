@@ -4,7 +4,7 @@ import { LoginComponent } from './login.component';
 
 import { By } from '@angular/platform-browser';
 
-fdescribe('LoginComponent', () => {
+ ..[describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
