@@ -25,14 +25,14 @@ public class JwtController {
     @Autowired
     private JwtUtil jwtTokenUtil;
     @RequestMapping({"/welcome"})
-    public String hello(){
+    public ResponseEntity<?> hello(){
         System.out.println("Hello world");
-        return "Heloo World";
+        return new ResponseEntity<>("Hello Brother", HttpStatus.OK);
     }
 
     @RequestMapping(value = "/authenticate/login", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
-
+        System.out.println("In the create token controller");
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())

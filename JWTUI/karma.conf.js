@@ -12,6 +12,12 @@ module.exports = function (config) {
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
+    files:[
+      'app/assets/components/angular/angular.js',
+      'app/assets/components/angular-mocks/angular-mocks.js',
+      'app/assets/javascripts/**/**/*.js',
+      'spec/javascripts/**/*.js'
+    ],
     client: {
       jasmine: {
         // you can add configuration options for Jasmine here
@@ -38,7 +44,7 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
-    singleRun: false,
+    singleRun: true,
     restartOnFileChange: true
   });
 };

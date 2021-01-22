@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import * as jwt_decode from 'jwt-decode';
-import { HttpClient } from '@angular/common/http';
+import jwt_decode, {JwtPayload} from 'jwt-decode';
+import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -18,7 +18,9 @@ export class AuthenticationService {
   authServiceEndpoint:string = "http://localhost:8081/authenticate";
   token:any;
 
-  constructor(private http: HttpClient) { }
+  private http: HttpClient;
+  constructor(private handler: HttpBackend) { this.http=new HttpClient(handler);}
+
 
   loginUser(user: any):Observable<any> {
     const url = `${this.authServiceEndpoint}/login`;
@@ -43,7 +45,7 @@ export class AuthenticationService {
   }
 
   getTokenExpirationDate(token: string) {
-    const decoded = jwt_decode(token);
+    const decoded = jwt_decode<JwtPayload>(token);
     if(decoded.exp === undefined) {
       return null;
     }
