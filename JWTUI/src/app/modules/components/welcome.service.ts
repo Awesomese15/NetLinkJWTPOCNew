@@ -22,6 +22,6 @@ export class WelcomeService {
   
   
   
-  return this.http.get(url);
+  return this.http.get(url, {responseType : 'text'});
   }
 }
