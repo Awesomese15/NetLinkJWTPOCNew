@@ -9,7 +9,7 @@ export class AuthGuardServiceService implements CanActivate {
 
   canActivate() {
 
-    if(this.authService.isTokenPresent()) {
+    if(this.authService.isTokenExpired()) {
       console.log(("token present"));
       
       return true;

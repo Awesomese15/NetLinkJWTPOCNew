@@ -3,10 +3,13 @@ import { Injectable } from '@angular/core';
 import jwt_decode, {JwtPayload} from 'jwt-decode';
 import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 
 
 
 export const TOKEN_NAME:string = "jwt_token";
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +18,7 @@ export class AuthenticationService {
 
   
 
-  authServiceEndpoint:string = "http://localhost:8081/authenticate";
+  authServiceEndpoint:string = `${environment.baseUrl}/authenticate`;
   token:any;
 
   private http: HttpClient;
@@ -55,7 +58,7 @@ export class AuthenticationService {
   }
 
   isTokenExpired(token?: string): boolean {
-    if(!token) {
+    if(token) {
       token = this.getToken() || "";
     }
     if(!token) {
